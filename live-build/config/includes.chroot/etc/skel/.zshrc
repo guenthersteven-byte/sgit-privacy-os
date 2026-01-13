@@ -30,9 +30,9 @@ bindkey '^[[F' end-of-line
 bindkey '^[[3~' delete-char
 
 # Modern CLI tool aliases (if available)
-command -v exa &> /dev/null && alias ls='exa --icons --group-directories-first'
-command -v exa &> /dev/null && alias ll='exa -la --icons --group-directories-first'
-command -v exa &> /dev/null && alias tree='exa --tree --icons'
+command -v eza &> /dev/null && alias ls='eza --icons --group-directories-first'
+command -v eza &> /dev/null && alias ll='eza -la --icons --group-directories-first'
+command -v eza &> /dev/null && alias tree='eza --tree --icons'
 command -v bat &> /dev/null && alias cat='bat --paging=never'
 command -v fd &> /dev/null && alias find='fd'
 command -v rg &> /dev/null && alias grep='rg'
