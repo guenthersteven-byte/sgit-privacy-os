@@ -16,3 +16,4 @@ live-build/*.hybrid.iso
 # OS
 .DS_Store
 Thumbs.db
+tmpclaude*
