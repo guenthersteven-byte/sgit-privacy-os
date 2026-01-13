@@ -1,0 +1,24 @@
+# XFCE Desktop
+task-xfce-desktop
+xfce4-terminal
+xfce4-screenshooter
+thunar-archive-plugin
+
+# Display Manager
+lightdm
+lightdm-gtk-greeter
+
+# Network
+network-manager
+network-manager-gnome
+
+# Basic Tools
+firefox-esr
+firefox-esr-l10n-de
+gnome-disk-utility
+gparted
+file-roller
+
+# German Localization
+locales
+task-german

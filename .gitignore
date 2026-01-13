@@ -1,0 +1,18 @@
+# Build artifacts
+*.iso
+*.iso.sha256
+*.iso.asc
+*.log
+build-*
+
+# live-build generated
+live-build/.build/
+live-build/binary/
+live-build/cache/
+live-build/chroot/
+live-build/local/
+live-build/*.hybrid.iso
+
+# OS
+.DS_Store
+Thumbs.db
