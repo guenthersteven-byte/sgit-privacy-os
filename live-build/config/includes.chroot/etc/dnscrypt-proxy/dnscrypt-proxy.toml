@@ -1,0 +1,53 @@
+# sgit-privacy-live DNSCrypt Configuration
+
+# Listen on localhost only
+listen_addresses = ["127.0.0.1:53", "[::1]:53"]
+
+# Use servers that support DNSSEC and don't log
+server_names = ["quad9-dnscrypt-ip4-filter-pri", "cloudflare", "mullvad-all"]
+
+# Require DNSSEC
+require_dnssec = true
+
+# Require no-logging policy
+require_nolog = true
+
+# Require no-filtering (or use filtered if preferred)
+require_nofilter = false
+
+# IPv4 and IPv6
+ipv4_servers = true
+ipv6_servers = false
+
+# DNSCrypt and DoH
+dnscrypt_servers = true
+doh_servers = true
+
+# Fallback resolvers (only used for initial bootstrap)
+fallback_resolvers = ["9.9.9.9:53", "1.1.1.1:53"]
+
+# Block IPv6 AAAA queries (reduces leaks)
+block_ipv6 = false
+
+# Cache settings
+cache = true
+cache_size = 4096
+cache_min_ttl = 2400
+cache_max_ttl = 86400
+cache_neg_min_ttl = 60
+cache_neg_max_ttl = 600
+
+# Logging (minimal for privacy)
+log_level = 2
+log_file = "/var/log/dnscrypt-proxy/dnscrypt-proxy.log"
+
+# Query logging disabled for privacy
+query_log_format = ""
+
+# Source for server lists
+[sources]
+  [sources.public-resolvers]
+    urls = ["https://raw.githubusercontent.com/DNSCrypt/dnscrypt-resolvers/master/v3/public-resolvers.md"]
+    cache_file = "/var/cache/dnscrypt-proxy/public-resolvers.md"
+    minisign_key = "RWQf6LRCGA9i53mlYecO4IzT51TGPpvWucNSCh1CBM0QTaLn73Y7GFO3"
+    refresh_delay = 72

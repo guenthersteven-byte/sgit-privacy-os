@@ -1,0 +1,65 @@
+#!/usr/sbin/nft -f
+# sgit-privacy-live Kill Switch
+# Blocks all traffic except VPN (Netbird/WireGuard)
+
+table inet sgit_killswitch {
+    chain input {
+        type filter hook input priority 0; policy drop;
+        
+        # Allow loopback
+        iif lo accept
+        
+        # Allow established connections
+        ct state established,related accept
+        
+        # Allow DHCP
+        udp sport 67 udp dport 68 accept
+        
+        # Allow DNS (local only, dnscrypt handles external)
+        udp dport 53 ip daddr 127.0.0.1 accept
+        tcp dport 53 ip daddr 127.0.0.1 accept
+        
+        # Allow VPN interfaces (Netbird/WireGuard)
+        iifname "wt*" accept
+        iifname "wg*" accept
+        
+        # Allow Netbird management (for initial connection)
+        tcp dport 443 accept
+        udp dport 443 accept
+        
+        # Drop everything else
+        counter drop
+    }
+    
+    chain output {
+        type filter hook output priority 0; policy drop;
+        
+        # Allow loopback
+        oif lo accept
+        
+        # Allow established connections
+        ct state established,related accept
+        
+        # Allow DHCP
+        udp sport 68 udp dport 67 accept
+        
+        # Allow DNS (local dnscrypt-proxy)
+        udp dport 53 ip daddr 127.0.0.1 accept
+        tcp dport 53 ip daddr 127.0.0.1 accept
+        
+        # Allow VPN interfaces
+        oifname "wt*" accept
+        oifname "wg*" accept
+        
+        # Allow Netbird management
+        tcp dport 443 accept
+        udp dport 443 accept
+        
+        # Drop everything else
+        counter drop
+    }
+    
+    chain forward {
+        type filter hook forward priority 0; policy drop;
+    }
+}

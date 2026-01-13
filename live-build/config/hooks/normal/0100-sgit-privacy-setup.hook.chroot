@@ -1,0 +1,27 @@
+#!/bin/bash
+# sgit-privacy-live Privacy Setup Hook
+
+set -e
+
+echo "[sgit-privacy] Configuring privacy services..."
+
+# Create log directory for dnscrypt-proxy
+mkdir -p /var/log/dnscrypt-proxy
+mkdir -p /var/cache/dnscrypt-proxy
+
+# Enable services
+systemctl enable dnscrypt-proxy.service || true
+systemctl enable apparmor.service || true
+systemctl enable nftables.service || true
+
+# Configure resolv.conf to use local dnscrypt-proxy
+cat > /etc/resolv.conf.sgit << 'RESOLV'
+# sgit-privacy-live - Using dnscrypt-proxy
+nameserver 127.0.0.1
+options edns0
+RESOLV
+
+# Make sgit-killswitch executable
+chmod +x /usr/local/bin/sgit-killswitch 2>/dev/null || true
+
+echo "[sgit-privacy] Privacy setup complete"

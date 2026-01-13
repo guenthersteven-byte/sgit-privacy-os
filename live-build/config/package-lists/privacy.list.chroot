@@ -1,0 +1,30 @@
+# sgit-privacy-live Privacy Stack
+
+# Firewall
+nftables
+
+# DNS Encryption
+dnscrypt-proxy
+
+# AppArmor (Mandatory Access Control)
+apparmor
+apparmor-utils
+apparmor-profiles
+apparmor-profiles-extra
+
+# Encryption Tools
+gnupg
+veracrypt
+
+# Metadata Removal
+mat2
+
+# Intrusion Prevention
+fail2ban
+
+# VPN
+wireguard-tools
+
+# Audit Tools
+lynis
+rkhunter

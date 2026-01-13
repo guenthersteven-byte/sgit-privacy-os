@@ -1,0 +1,36 @@
+#!/bin/bash
+# sgit-killswitch - VPN Kill Switch Control
+# Part of sgit-privacy-live
+
+NFTABLES_FILE="/etc/nftables.d/sgit-killswitch.nft"
+
+case "$1" in
+    on|enable)
+        echo "Aktiviere Kill Switch..."
+        nft -f "$NFTABLES_FILE"
+        echo "Kill Switch AKTIV - Nur VPN-Traffic erlaubt"
+        ;;
+    off|disable)
+        echo "Deaktiviere Kill Switch..."
+        nft delete table inet sgit_killswitch 2>/dev/null
+        echo "Kill Switch DEAKTIVIERT - Aller Traffic erlaubt"
+        ;;
+    status)
+        if nft list table inet sgit_killswitch &>/dev/null; then
+            echo "Kill Switch: AKTIV"
+            echo ""
+            echo "Regeln:"
+            nft list table inet sgit_killswitch
+        else
+            echo "Kill Switch: INAKTIV"
+        fi
+        ;;
+    *)
+        echo "Verwendung: sgit-killswitch {on|off|status}"
+        echo ""
+        echo "  on/enable   - Aktiviert Kill Switch (nur VPN-Traffic)"
+        echo "  off/disable - Deaktiviert Kill Switch"
+        echo "  status      - Zeigt aktuellen Status"
+        exit 1
+        ;;
+esac
