@@ -1,6 +1,10 @@
 # sgit-privacy-live Developer Tools
 # License: All packages are OSI-compliant
 
+# Remote Management (SSH immer dabei!)
+openssh-server
+openssh-client
+
 # Shell - Modern terminal experience
 zsh
 zsh-autosuggestions
