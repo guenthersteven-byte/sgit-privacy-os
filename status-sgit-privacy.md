@@ -1,9 +1,9 @@
 # sgit-privacy-live - Status Report
 
-**Letzte Aktualisierung:** 13.01.2026 18:35
-**Version:** 0.2.1-first-iso
+**Letzte Aktualisierung:** 13.01.2026 19:45
+**Version:** 0.3.0-privacy-stack
 **Lead Engineer:** deStevie
-**Status:** ✅ ERSTES ISO ERFOLGREICH GEBAUT
+**Status:** 🔨 PRIVACY-STACK BUILD LÄUFT
 
 ---
 
@@ -52,12 +52,28 @@
 | Erster ISO-Build | ✅ Erfolgreich (1,8 GB) | - |
 | ISO-Struktur verifiziert | ✅ BIOS + UEFI bootbar | - |
 
-**Erstes ISO:** `live-image-amd64.hybrid.iso`
-- Pfad: `/home/builder/sgit-privacy-live/`
-- Größe: 1,8 GB
-- Inhalt: Debian 13 + XFCE + Firefox + Deutsch
+**Erstes ISO:** `sgit-privacy-live-0.2.1-20260113.iso` (1,8 GB)
 
-### Phase 3-10: Entwicklung 📋 GEPLANT
+### Phase 4: Privacy-Stack 🔨 IN ARBEIT
+
+| Aufgabe | Status | Priorität |
+|---------|--------|-----------|
+| nftables Kill Switch | ✅ Implementiert | - |
+| Kernel-Hardening (sysctl) | ✅ Konfiguriert | - |
+| DNS-Verschlüsselung (dnscrypt-proxy) | ✅ Konfiguriert | - |
+| MAC-Randomisierung | ✅ Konfiguriert | - |
+| Netbird VPN Integration | ✅ Repo hinzugefügt | - |
+| Privacy-Pakete (AppArmor, etc.) | ✅ Paketliste erstellt | - |
+| ISO-Build mit Privacy-Stack | 🔄 Läuft | 🔴 HOCH |
+
+**Privacy-Features:**
+- `sgit-killswitch` CLI-Tool (on/off/status)
+- VPN-only Traffic bei aktivem Kill Switch
+- Verschlüsselte DNS-Anfragen (Quad9, Cloudflare, Mullvad)
+- Zufällige MAC-Adressen pro Verbindung
+- AppArmor Mandatory Access Control
+
+### Phase 5-12: Entwicklung 📋 GEPLANT
 
 | Phase | Dauer | Inhalt | Status |
 |-------|-------|--------|--------|

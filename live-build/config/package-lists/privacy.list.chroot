@@ -14,7 +14,6 @@ apparmor-profiles-extra
 
 # Encryption Tools
 gnupg
-veracrypt
 
 # Metadata Removal
 mat2
