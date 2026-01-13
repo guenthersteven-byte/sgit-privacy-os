@@ -1,0 +1,54 @@
+# sgit-privacy-live Developer Tools
+# License: All packages are OSI-compliant
+
+# Shell - Modern terminal experience
+zsh
+zsh-autosuggestions
+zsh-syntax-highlighting
+tmux
+
+# Node.js for Claude Code
+nodejs
+npm
+
+# Container Tools (Podman - rootless, no daemon)
+podman
+buildah
+skopeo
+podman-compose
+
+# Web-based Management Console (Cockpit)
+cockpit
+cockpit-podman
+cockpit-networkmanager
+cockpit-storaged
+
+# Development Essentials
+git
+curl
+wget
+jq
+yq
+htop
+btop
+tree
+ripgrep
+fd-find
+fzf
+bat
+exa
+neovim
+
+# Build Tools
+build-essential
+cmake
+pkg-config
+
+# Python
+python3
+python3-pip
+python3-venv
+
+# Fonts for terminal
+fonts-jetbrains-mono
+fonts-firacode

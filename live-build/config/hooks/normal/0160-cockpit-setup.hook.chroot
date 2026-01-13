@@ -1,0 +1,33 @@
+#!/bin/bash
+# sgit-privacy-live Cockpit Setup
+# Enable Cockpit web console for container/system management
+
+set -e
+
+echo "=== Configuring Cockpit Web Console ==="
+
+# Enable Cockpit socket for on-demand activation
+systemctl enable cockpit.socket 2>/dev/null || true
+
+# Create Cockpit configuration for privacy
+mkdir -p /etc/cockpit
+
+cat > /etc/cockpit/cockpit.conf << 'EOF'
+[WebService]
+Origins = https://localhost:9090 wss://localhost:9090
+ProtocolHeader = X-Forwarded-Proto
+AllowUnencrypted = false
+
+[Session]
+IdleTimeout = 15
+Banner = /etc/cockpit/issue.cockpit
+EOF
+
+# Create banner
+cat > /etc/cockpit/issue.cockpit << 'EOF'
+sgit-privacy-live Management Console
+Access is logged. Use responsibly.
+EOF
+
+echo "=== Cockpit Configured ==="
+echo "Access via: https://localhost:9090"

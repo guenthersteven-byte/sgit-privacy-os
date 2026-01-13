@@ -1,0 +1,25 @@
+#!/bin/bash
+# sgit-privacy-live Developer Tools Setup
+# Installs Claude Code, Starship prompt, and configures modern shell
+
+set -e
+
+echo "=== Installing Developer Tools ==="
+
+# Install Starship prompt (cross-shell, Rust-based, MIT license)
+echo "Installing Starship prompt..."
+curl -fsSL https://starship.rs/install.sh | sh -s -- -y
+
+# Install Claude Code globally via npm
+echo "Installing Claude Code..."
+npm install -g @anthropic-ai/claude-code || true
+
+# Create global npm directory for user installs
+mkdir -p /etc/skel/.npm-global
+echo 'export NPM_CONFIG_PREFIX=~/.npm-global' >> /etc/skel/.profile
+echo 'export PATH=$PATH:~/.npm-global/bin' >> /etc/skel/.profile
+
+# Set Zsh as default shell for new users
+sed -i 's|SHELL=/bin/bash|SHELL=/bin/zsh|' /etc/default/useradd 2>/dev/null || true
+
+echo "=== Developer Tools Installed ==="

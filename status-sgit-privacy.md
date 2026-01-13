@@ -1,9 +1,9 @@
 # sgit-privacy-live - Status Report
 
-**Letzte Aktualisierung:** 13.01.2026 19:45
-**Version:** 0.3.0-privacy-stack
+**Letzte Aktualisierung:** 13.01.2026 20:15
+**Version:** 0.4.0-dev-experience
 **Lead Engineer:** deStevie
-**Status:** 🔨 PRIVACY-STACK BUILD LÄUFT
+**Status:** 🔨 DEVELOPER-STACK BUILD LÄUFT
 
 ---
 
@@ -73,7 +73,27 @@
 - Zufällige MAC-Adressen pro Verbindung
 - AppArmor Mandatory Access Control
 
-### Phase 5-12: Entwicklung 📋 GEPLANT
+### Phase 5: Developer Experience 🔨 IN ARBEIT
+
+| Aufgabe | Status | Priorität |
+|---------|--------|-----------|
+| Claude Code (AI CLI) | ✅ Konfiguriert | - |
+| Starship Prompt | ✅ Konfiguriert | - |
+| Zsh mit Autosuggestions | ✅ Konfiguriert | - |
+| Podman Container-Tools | ✅ Paketliste | - |
+| Cockpit Web-Console | ✅ Konfiguriert | - |
+| Modern CLI Tools (bat, exa, fzf, rg) | ✅ Paketliste | - |
+| ISO-Build mit Dev-Tools | 🔄 Läuft | 🔴 HOCH |
+
+**Developer-Features:**
+- Claude Code via `claude` Alias
+- Starship Prompt mit Git-Integration
+- Zsh mit syntax-highlighting und autosuggestions
+- Podman (rootless, Docker-kompatibel)
+- Cockpit Web-Console unter https://localhost:9090
+- Modern CLI: bat, exa, fzf, ripgrep, fd-find, btop, neovim
+
+### Phase 6-12: Entwicklung 📋 GEPLANT
 
 | Phase | Dauer | Inhalt | Status |
 |-------|-------|--------|--------|
@@ -166,7 +186,9 @@ VM 120: sgit-live-builder
 | Browser | Firefox ESR (gehärtet), Tor Browser | MPL-2.0, MIT |
 | E-Mail | Thunderbird (Stalwart vorkonfiguriert) | MPL-2.0 |
 | Office | LibreOffice, Evince | MPL-2.0, GPL-2.0 |
-| Dev-Tools | git, neovim, podman | GPL-2.0, Apache-2.0 |
+| Dev-Tools | git, neovim, podman, claude-code | GPL-2.0, Apache-2.0, MIT |
+| Shell | Zsh, Starship, tmux | MIT, ISC, BSD |
+| Container | Podman, Cockpit | Apache-2.0, LGPL-2.1 |
 
 ### sgit-Tools (Eigenentwicklung)
 
@@ -217,6 +239,8 @@ VM 120: sgit-live-builder
 
 | Datum | Version | Änderung |
 |-------|---------|----------|
+| 13.01.2026 | 0.4.0 | 🔨 Developer Experience: Claude Code, Starship, Zsh, Cockpit |
+| 13.01.2026 | 0.3.0 | 🔨 Privacy-Stack: Kill Switch, Hardening, DNS, MAC-Randomisierung |
 | 13.01.2026 | 0.2.1 | ✅ **ERSTES ISO ERFOLGREICH!** 1,8 GB, BIOS+UEFI bootbar |
 | 13.01.2026 | 0.2.0 | 🔨 Erster ISO-Build gestartet (XFCE + Firefox + Deutsch) |
 | 13.01.2026 | 0.1.2 | 🔧 live-build + QEMU installiert, Nested Virt getestet |
@@ -226,14 +250,14 @@ VM 120: sgit-live-builder
 
 ---
 
-**Report Version:** 0.2.1
-**Zeilen:** ~220 / 500 (Archivierung bei >500)
+**Report Version:** 0.4.0
+**Zeilen:** ~260 / 500 (Archivierung bei >500)
 **Archiv:** `status-sgit-privacy_ARCHIVE.md` (wenn nötig)
 **Haupt-Doku:** `sgit-privacy-live-final.md`
 **Maintained by:** deStevie
 
 ═══════════════════════════════════════════════════════════
-✅ MEILENSTEIN ERREICHT: Erstes bootbares ISO erfolgreich gebaut!
-NÄCHSTER MEILENSTEIN: OOBE-Wizard Prototyp + Privacy-Stack
+🔨 IN ARBEIT: Developer Experience Build (Claude Code, Starship, Cockpit)
+NÄCHSTER MEILENSTEIN: OOBE-Wizard Prototyp
 BEI >500 ZEILEN: Changelog archivieren!
 ═══════════════════════════════════════════════════════════

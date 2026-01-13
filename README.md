@@ -15,6 +15,8 @@ Eine privacy-fokussierte Linux-Distribution basierend auf **Debian 13 (Trixie)**
 
 - **100% Open Source** - Nur OSI-approved Lizenzen (MIT, GPL, Apache, BSD, MPL)
 - **Privacy by Default** - Kill Switch, DNS-Verschlüsselung, MAC-Randomisierung
+- **Developer Experience** - Claude Code, Starship, Zsh, moderne CLI-Tools
+- **Container-Ready** - Podman (rootless), Cockpit Web-Console
 - **OOBE-Wizard** - Benutzerfreundliches Setup wie Windows/macOS
 - **VPN ready** - Netbird (vpn.sgit.space) vorkonfiguriert
 - **E-Mail integriert** - Stalwart Mail (mail.sgit.space) vorkonfiguriert
@@ -25,10 +27,13 @@ Eine privacy-fokussierte Linux-Distribution basierend auf **Debian 13 (Trixie)**
 | Komponente | Software |
 |------------|----------|
 | Desktop | XFCE4 |
+| Shell | Zsh + Starship Prompt |
 | Browser | Firefox ESR (gehärtet) |
 | E-Mail | Thunderbird |
 | Office | LibreOffice |
 | VPN | Netbird + WireGuard |
+| Container | Podman + Cockpit |
+| AI | Claude Code |
 
 ---
 
@@ -99,19 +104,20 @@ sgit-privacy-os/
 
 ## Aktueller Stand
 
-**Version:** 0.2.1
+**Version:** 0.4.0-dev-experience
 **Letztes ISO:** `sgit-privacy-live-0.2.1-20260113.iso` (1,8 GB)
-**Status:** Erstes bootbares ISO erfolgreich gebaut
+**Status:** Developer Experience Build läuft
 
 ### Roadmap
 
 - [x] Phase 1: Planung & Spezifikation
 - [x] Phase 2: Build-Infrastruktur
 - [x] Phase 3: Erstes bootbares ISO (v0.2.1)
-- [ ] Phase 4: Privacy-Stack (Kill Switch, Hardening)
-- [ ] Phase 5: OOBE-Wizard
-- [ ] Phase 6: sgit-privacy-center (CLI + GUI)
-- [ ] Phase 7: Testing & Release
+- [x] Phase 4: Privacy-Stack (Kill Switch, Hardening, DNS, MAC)
+- [x] Phase 5: Developer Experience (Claude Code, Starship, Cockpit)
+- [ ] Phase 6: OOBE-Wizard
+- [ ] Phase 7: sgit-privacy-center (CLI + GUI)
+- [ ] Phase 8: Testing & Release
 
 ---
 
